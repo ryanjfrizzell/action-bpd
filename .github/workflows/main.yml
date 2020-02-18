@@ -9,7 +9,9 @@ jobs:
     - name: test 
       uses: ryanjfrizzell/action-bpd@master
       with:
-        docker_registry: 'hub.docker.com/ryanjfrizzell/action-bpd'
+        docker_registry: 'docker.pkg.github.com'
+        docker_repo: 'ryanjfrizzell'
+        docker_image: 'action-bpd'
         docker_username: ${{ secrets.docker_username }}
         docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
