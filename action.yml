@@ -1,0 +1,28 @@
+# action.yml
+name: 'Build and Publish Dockerfile'
+description: 'Greet someone and record the time'
+inputs:
+  docker_registry:
+    description: 'location of your docker registry'
+    required: true
+  docker_username:
+    description: 'username needed to login to your registry'
+    required: false
+  docker_password:
+    description: 'password needed to login to your registry'
+    required: false
+  dockerfile:
+    description: 'the location of your dockerfile'
+    default: 'Dockerfile'
+    required: true
+outputs:
+  image: 
+    description: 'the image created and pushed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.docker_registry }}
+    - ${{ inputs.docker_username }}
+    - ${{ inputs.docker_password }}
+    - ${{ inputs.dockerfile }}
