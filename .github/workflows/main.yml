@@ -5,7 +5,7 @@ jobs:
     name: test out our github action
     steps:
     - name: test 
-      uses: https://github.com/ryanjfrizzell/action-bpd
+      uses: github.com/ryanjfrizzell/action-bpd@master
       with:
         docker_registry: 'hub.docker.com/ryanjfrizzell/action-bpd'
         docker_username: ${secrets.docker_username}
