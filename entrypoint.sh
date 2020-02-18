@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eo
+set -exo
 env
 if [[ -e docker_registry_repo ]]; then
   docker_registry="${docker_registry_url}/${docker_registry_repo}"
