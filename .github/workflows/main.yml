@@ -6,16 +6,12 @@ jobs:
     steps:
     - name: git checkout
       uses: actions/checkout@v2
-    - name: what up
-      run: |
-          ls -al
-      shell: bash
     - name: test 
       uses: ryanjfrizzell/action-bpd@master
       with:
         docker_registry: 'hub.docker.com/ryanjfrizzell/action-bpd'
-        docker_username: ${secrets.docker_username}
-        docker_password: ${secrets.docker_password}
+        docker_username: ${{ secrets.docker_username }}
+        docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
     # Use the output from the `hello` step
     - name: Get the output time
