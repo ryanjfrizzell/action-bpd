@@ -1,13 +1,17 @@
-on: [push]
+on: [push,pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
     name: test out our github action
     steps:
     - name: git checkout
-        uses: actions/checkout@v2
+      uses: actions/checkout@v2
+    - name: what up
+      run: |
+          ls -al
+      shell: bash
     - name: test 
-      uses: github.com/ryanjfrizzell/action-bpd@master
+      uses: ryanjfrizzell/action-bpd@master
       with:
         docker_registry: 'hub.docker.com/ryanjfrizzell/action-bpd'
         docker_username: ${secrets.docker_username}
