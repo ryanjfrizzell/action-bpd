@@ -1,3 +1,4 @@
 FROM docker:stable
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+RUN mkdir /bpd
+COPY entrypoint.sh /bpd/entrypoint.sh
+ENTRYPOINT ["/bpd/entrypoint.sh"]
