@@ -2,8 +2,14 @@
 name: 'Build and Publish Dockerfile'
 description: 'Greet someone and record the time'
 inputs:
-  docker_registry:
+  docker_registry_url:
     description: 'location of your docker registry'
+    required: true
+  docker_registry_repo:
+    description: 'sub repo of your registry_url if needed'
+    required: false
+  docker_image:
+    description: 'image name to use'
     required: true
   docker_username:
     description: 'username needed to login to your registry'
@@ -22,7 +28,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.docker_registry }}
+    - ${{ inputs.docker_registry_url }}
+    - ${{ inputs.docker_registry_repo }}
+    - ${{ inputs.docker_image }}
     - ${{ inputs.docker_username }}
     - ${{ inputs.docker_password }}
     - ${{ inputs.dockerfile }}
