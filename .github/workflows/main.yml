@@ -57,6 +57,7 @@ jobs:
         dockerfile: 'test/Dockerfile.test'
         docker_image_tag: 'v1.0.0'
         docker_registry: 'actionbpd/action-bpd'
+        dockerhub: 'true'
     - name: Get the output
       run: |
           echo "imageinfo was ${{ steps.test-public.outputs.imageinfo }}"

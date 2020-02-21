@@ -11,7 +11,7 @@ docker_password=$INPUT_DOCKER_PASSWORD
 dockerfile=$INPUT_DOCKERFILE
 docker_image_tag=$INPUT_DOCKER_IMAGE_TAG
 docker_registry=$INPUT_DOCKER_REGISTRY
-
+dockerhub=$INPUT_DOCKERHUB
 
 # otherwise we try to assemble your docker image based on gihub's repo standard
 # https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
@@ -29,7 +29,11 @@ if [[ -z $docker_registry_image ]]; then
     exit 3
 fi
 # go with the do
-echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
+if [[ $dockerhub=='true' ]]; then
+    echo $docker_password | docker login ${docker_registry_owner} -u ${docker_username} --password-stdin
+else
+    echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
+fi
 echo "docker build -t ${tagged_image}  -f ${dockerfile} ."
 docker build -t ${tagged_image} -f ${dockerfile} .
 docker push  ${tagged_image}

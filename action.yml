@@ -40,6 +40,10 @@ inputs:
     description: 'use this to override the formation of the image url'
     default: ''
     required: true
+  dockerhub:
+    description: 'are you trying to push to dockerhub? [true/false]'
+    default: 'false'
+    required: true
 
 outputs:
   imageinfo: 
@@ -57,3 +61,4 @@ runs:
     - ${{ inputs.dockerfile }}
     - ${{ inputs.docker_image_tag }}
     - ${{ inputs.docker_registry }}
+    - ${{ inputs.dockerhub }}
