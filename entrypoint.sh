@@ -9,16 +9,13 @@ docker_password=$6
 dockerfile=$7
 docker_image_tag=$8
 
-# we attempt to build our registry image name here....we try to support as much as we can
 
-if [[ -z $docker_registry_owner ]]; then
-  # this gives us a shortculd if you just want to feed the registry path via docker_registry_url 
-  # and set us an image to use
-  docker_registry_image="${docker_registry_url}/${docker_image}"
+# otherwise we try to assemble your docker image based on gihub's repo standard
+# https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
+if [[ -z docker_image ]]; then
+    docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}"
 else
-  # otherwise we try to assemble your docker image based on gihub's repo standard
-  # https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
-  docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}/${docker_image}"
+    docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}/${docker_image}"
 fi
 if [[ -z $docker_registry_image ]]; then
     echo 'we failed to assemble a docker registry/image combination'
