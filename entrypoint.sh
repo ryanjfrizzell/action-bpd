@@ -1,5 +1,7 @@
 #!/bin/sh
 set -exo
+echo $1
+echo $@
 if [[ -e docker_registry_repo ]]; then
   docker_registry="${docker_registry_url}/${docker_registry_repo}"
 else
