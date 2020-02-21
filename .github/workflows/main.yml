@@ -18,5 +18,5 @@ jobs:
         docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
     - name: Get the output
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
-      #run: echo "imageinfo: ${{ steps.test.outputs.imageinfo }}"
+      #run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "imageinfo was ${{ steps.test.outputs.imageinfo }}"
