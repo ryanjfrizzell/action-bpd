@@ -51,7 +51,9 @@ jobs:
       id: test
       uses: ryanjfrizzell/action-bpd@master
       with:
-        docker_registry_url: 'docker.io/actionbpd/action-bpd'
+        docker_registry_url: 'docker.io'
+        docker_regitry_owner: 'actionbpd'
+        docker_repository: 'action-bpd'
         docker_username: ${{ secrets.dockerhub_username }}
         docker_password: ${{ secrets.dockerhub_password }}
         dockerfile: 'test/Dockerfile.test'
