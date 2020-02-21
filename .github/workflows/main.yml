@@ -52,10 +52,6 @@ jobs:
       uses: ryanjfrizzell/action-bpd@master
       with:
         # to use the docker_registry override option....set to blank
-        docker_registry_url: ''
-        docker_registry_owner: ''
-        docker_repository: ''
-        docker_image: ''
         docker_username: ${{ secrets.dockerhub_username }}
         docker_password: ${{ secrets.dockerhub_password }}
         dockerfile: 'test/Dockerfile.test'

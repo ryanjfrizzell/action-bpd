@@ -9,15 +9,19 @@ inputs:
   docker_registry_url:
     description: 'the url your registry is located at, used for docker login, ex: docker.pkg.github.com'
     required: true
+    default: ''
   docker_registry_owner: 
     description: 'the owner for the registry, ex: ryanjfrizzell'
     required: true
+    default: ''
   docker_repository:
     description: 'repository of the image, ex: action-bpd  '
     required: true
+    default: ''
   docker_image:
     description: 'image name to use'
     required: true
+    default: ''
   docker_username:
     description: 'username needed to login to your registry'
     required: true
