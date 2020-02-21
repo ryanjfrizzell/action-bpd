@@ -1,6 +1,5 @@
 #!/bin/sh
-set -exo
-echo $@
+set -eo
 docker_registry_url=$1
 docker_registry_owner=$2
 docker_repository=$3
@@ -32,5 +31,5 @@ echo "docker build -t tmpimage -f ${dockerfile} ."
 docker build -t tmpimage -f ${dockerfile} .
 docker tag tmpimage ${docker_registry_image}:${docker_image_tag}
 docker push  ${docker_registry_image}:${docker_image_tag}
-image_info=$(docker image ls)
+image_info=$(docker image ls | grep ${docker_registry_image})
 echo ::set-output name=imageinfo::$image_info
