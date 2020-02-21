@@ -17,15 +17,17 @@ if [[ -z docker_image ]]; then
 else
     docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}/${docker_image}"
 fi
+tagged_image="${docker_registry_image}/${docker_image_tag}"
 if [[ -z $docker_registry_image ]]; then
     echo 'we failed to assemble a docker registry/image combination'
     exit 3
 fi
 echo "docker image set to ${docker_registry_image}"
+echo "using tagged image of ${tagged_image}"
 # login to docker
 echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
-echo "docker build -t ${docker_registry_image}  -f ${dockerfile} ."
-docker build -t ${docker_registry_image} -f ${dockerfile} .
-docker push  ${docker_registry_image}:${docker_image_tag}
+echo "docker build -t ${tagged_image}  -f ${dockerfile} ."
+docker build -t ${tagged_image} -f ${dockerfile} .
+docker push  ${tagged_image}
 image_info=$(docker image ls | grep ${docker_registry_image})
 echo ::set-output name=imageinfo::$image_info
