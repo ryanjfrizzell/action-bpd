@@ -56,7 +56,7 @@ jobs:
         docker_password: ${{ secrets.dockerhub_password }}
         dockerfile: 'test/Dockerfile.test'
         docker_image_tag: 'v1.0.0'
-        docker_registry: 'docker.io/actionbpd/action-bpd'
+        docker_registry: 'actionbpd/action-bpd'
     - name: Get the output
       run: |
           echo "imageinfo was ${{ steps.test-public.outputs.imageinfo }}"
