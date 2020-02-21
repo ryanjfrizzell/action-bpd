@@ -42,7 +42,7 @@ runs:
   args:
     - ${{ inputs.docker_registry_url }}
     - ${{ inputs.docker_registry_owner }}
-    - ${{ inputs.docker_registry_repository }}
+    - ${{ inputs.docker_repository }}
     - ${{ inputs.docker_image }}
     - ${{ inputs.docker_username }}
     - ${{ inputs.docker_password }}
