@@ -4,7 +4,11 @@
 # ex:
 # docker.pkg.github.com/ryanjfrizzell/action-bpd/bpd:VERSION
 name: 'Build and Publish Dockerfile'
-description: 'Greet someone and record the time'
+description: 'simple build an publish of Dockerfile'
+author: 'Ryan Frizzell'
+branding: 
+  icon: anchor
+  color: orange
 inputs:
   docker_registry_url:
     description: 'the url your registry is located at, used for docker login, ex: docker.pkg.github.com'
