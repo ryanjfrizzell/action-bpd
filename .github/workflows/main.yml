@@ -18,4 +18,4 @@ jobs:
         dockerfile: 'test/Dockerfile.test'
     # Use the output from the `hello` step
     - name: Get the output
-      run: echo "The time was ${{ steps.test.outputs }}"
+      run: echo "imageinfo:  ${{ steps.test.imageinfo}}"
