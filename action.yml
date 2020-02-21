@@ -34,7 +34,7 @@ inputs:
     required: true
 
 outputs:
-  image: 
+  imageinfo: 
     description: 'the image created and pushed'
 runs:
   using: 'docker'
