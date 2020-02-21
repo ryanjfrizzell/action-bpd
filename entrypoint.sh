@@ -24,9 +24,8 @@ fi
 echo "docker image set to ${docker_registry_image}"
 # login to docker
 echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
-echo "docker build -t tmpimage -f ${dockerfile} ."
-docker build -t tmpimage -f ${dockerfile} .
-docker tag tmpimage ${docker_registry_image}:${docker_image_tag}
+echo "docker build -t ${docker_registry_image}  -f ${dockerfile} ."
+docker build -t ${docker_registry_image} -f ${dockerfile} .
 docker push  ${docker_registry_image}:${docker_image_tag}
 image_info=$(docker image ls | grep ${docker_registry_image})
 echo ::set-output name=imageinfo::$image_info
