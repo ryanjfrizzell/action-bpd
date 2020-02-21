@@ -16,7 +16,7 @@ docker_registry=$9
 if [[ -z docker_registry ]]; then
     docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}/${docker_image}"
 else
-    docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}"
+    docker_registry_image="${docker_registry}"
 fi
 tagged_image="${docker_registry_image}:${docker_image_tag}"
 echo "docker image set to ${docker_registry_image}"
