@@ -10,8 +10,9 @@ jobs:
       uses: ryanjfrizzell/action-bpd@master
       with:
         docker_registry_url: 'docker.pkg.github.com'
-        docker_registry_repo: 'ryanjfrizzell'
-        docker_image: 'action-bpd'
+        docker_registry_owner: 'ryanjfrizzell'
+        docker_repository: 'action-bpd'
+        docker_image: 'bpd_latest_test'
         docker_username: ${{ secrets.docker_username }}
         docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
