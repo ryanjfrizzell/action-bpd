@@ -16,7 +16,8 @@ fi
 docker_registry_image="${docker_registry_url}/${docker_registry_repo}/${docker_image}"
 
 echo "docker image set to ${docker_registry_image}"
-docker login ${docker_registry_url} -u ${docker_username} -p ${docker_password}
+# login to docker
+echo $docker_password | docker login ${docker_registry_url} -u ${docker_username} --password-stdin
 echo "docker build -t tmpimage -f ${dockerfile} ."
 docker build -t tmpimage -f ${dockerfile} .
 docker tag tmpimage ${docker_registry_image}:latest
