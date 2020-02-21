@@ -1,7 +1,15 @@
 #!/bin/sh
 set -exo
-echo $1
-echo $@
+docker_registry_url = $1
+docker_registry_repo = $2
+docker_image = $3
+docker_username = $4
+docker_password = $5
+dockerfile = $6
+
+if [[ $# -ne 6 ]]; then
+    echo "missing one or more arguments"
+fi
 if [[ -e docker_registry_repo ]]; then
   docker_registry="${docker_registry_url}/${docker_registry_repo}"
 else
