@@ -18,4 +18,4 @@ jobs:
         docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
     - name: Get the output
-      run: echo "imageinfo:  ${{ steps.test.outpus.imageinfo }}"
+      run: echo "imageinfo:  ${{ steps.test.outputs.imageinfo }}"
