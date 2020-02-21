@@ -2,7 +2,7 @@ on: [push,pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: test out our github action
+    name: test out our github action with no image version
     steps:
     - name: git checkout
       uses: actions/checkout@v2
@@ -17,4 +17,4 @@ jobs:
         dockerfile: 'test/Dockerfile.test'
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "The time was ${{ steps.test.outputs }}"

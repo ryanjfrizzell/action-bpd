@@ -1,12 +1,19 @@
 # action.yml
+# docker push if formed as so:
+# DOCKER_REGISTRY_URL/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+# ex:
+# docker.pkg.github.com/ryanjfrizzell/action-bpd/bpd:VERSION
 name: 'Build and Publish Dockerfile'
 description: 'Greet someone and record the time'
 inputs:
   docker_registry_url:
-    description: 'location of your docker registry'
+    description: 'the url your registry is located at, used for docker login, ex: docker.pkg.github.com'
     required: true
-  docker_registry_repo:
-    description: 'sub repo of your registry_url if needed'
+  docker_registry_owner: 
+    description: 'the owner for the registry, ex: ryanjfrizzell'
+    required: false 
+  docker_repository:
+    description: 'repository of the image, ex: action-bpd  '
     required: false
   docker_image:
     description: 'image name to use'
@@ -21,6 +28,11 @@ inputs:
     description: 'the location of your dockerfile'
     default: 'Dockerfile'
     required: true
+  docker_image_tag:
+    description: 'the tag version you would like to use'
+    default: 'latest'
+    required: true
+
 outputs:
   image: 
     description: 'the image created and pushed'
@@ -29,8 +41,10 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.docker_registry_url }}
-    - ${{ inputs.docker_registry_repo }}
+    - ${{ inputs.docker_registry_owner }}
+    - ${{ inputs.docker_registry_repository }}
     - ${{ inputs.docker_image }}
     - ${{ inputs.docker_username }}
     - ${{ inputs.docker_password }}
     - ${{ inputs.dockerfile }}
+    - ${{ inputs.docker_image_tag }}
