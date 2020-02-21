@@ -1,11 +1,12 @@
 #!/bin/sh
 set -exo
-docker_registry_url = $1
-docker_registry_repo = $2
-docker_image = $3
-docker_username = $4
-docker_password = $5
-dockerfile = $6
+echo $@
+docker_registry_url=$1
+docker_registry_repo=$2
+docker_image=$3
+docker_username=$4
+docker_password=$5
+dockerfile=$6
 
 if [[ $# -ne 6 ]]; then
     echo "missing one or more arguments"
