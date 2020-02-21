@@ -29,7 +29,7 @@ if [[ -z $docker_registry_image ]]; then
     exit 3
 fi
 # go with the do
-if [[ $dockerhub=='true' ]]; then
+if [[ $dockerhub == 'true' ]]; then
     echo $docker_password | docker login ${docker_registry_owner} -u ${docker_username} --password-stdin
 else
     echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
