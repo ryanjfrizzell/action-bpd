@@ -1,5 +1,7 @@
 #!/bin/sh
 set -xeo
+env
+echo $@
 docker_registry_url=$1
 docker_registry_owner=$2
 docker_repository=$3
