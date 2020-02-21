@@ -27,7 +27,7 @@ if [[ -z $docker_registry_image ]]; then
 fi
 echo "docker image set to ${docker_registry_image}"
 # login to docker
-echo $docker_password | docker login ${docker_registry_url} -u ${docker_username} --password-stdin
+echo $docker_password | docker login ${docker_registry_image} -u ${docker_username} --password-stdin
 echo "docker build -t tmpimage -f ${dockerfile} ."
 docker build -t tmpimage -f ${dockerfile} .
 docker tag tmpimage ${docker_registry_image}:latest
