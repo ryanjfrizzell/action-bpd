@@ -32,6 +32,10 @@ inputs:
     description: 'the tag version you would like to use'
     default: 'latest'
     required: true
+  docker_registry:
+    description: 'use this to override the formation of the image url'
+    default: ''
+    required: true
 
 outputs:
   imageinfo: 
@@ -48,3 +52,4 @@ runs:
     - ${{ inputs.docker_password }}
     - ${{ inputs.dockerfile }}
     - ${{ inputs.docker_image_tag }}
+    - ${{ inputs.docker_registry }}
