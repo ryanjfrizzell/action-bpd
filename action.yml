@@ -11,19 +11,23 @@ inputs:
     required: true
   docker_registry_owner: 
     description: 'the owner for the registry, ex: ryanjfrizzell'
-    required: false 
+    default: ''
+    required: true
   docker_repository:
     description: 'repository of the image, ex: action-bpd  '
-    required: false
+    default: ''
+    required: true
   docker_image:
     description: 'image name to use'
     required: true
+    default: ''
+    required: true
   docker_username:
     description: 'username needed to login to your registry'
-    required: false
+    required: true
   docker_password:
     description: 'password needed to login to your registry'
-    required: false
+    required: true
   dockerfile:
     description: 'the location of your dockerfile'
     default: 'Dockerfile'
