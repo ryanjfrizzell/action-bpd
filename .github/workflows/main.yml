@@ -1,4 +1,9 @@
-on: [pull_request,merge]
+on:
+  push: 
+    branches: 
+      - integration
+  pull_request:
+      - master
 jobs:
   test:
     runs-on: ubuntu-latest
