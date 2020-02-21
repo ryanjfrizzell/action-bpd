@@ -16,6 +16,5 @@ jobs:
         docker_username: ${{ secrets.docker_username }}
         docker_password: ${{ secrets.docker_password }}
         dockerfile: 'test/Dockerfile.test'
-    # Use the output from the `hello` step
     - name: Get the output
-      run: echo "imageinfo:  ${{ steps.test.imageinfo}}"
+      run: echo "imageinfo:  ${{ steps.test.imageinfo }}"
