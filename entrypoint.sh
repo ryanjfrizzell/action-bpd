@@ -17,7 +17,7 @@ if [[ -z docker_image ]]; then
 else
     docker_registry_image="${docker_registry_url}/${docker_registry_owner}/${docker_repository}/${docker_image}"
 fi
-tagged_image="${docker_registry_image}/${docker_image_tag}"
+tagged_image="${docker_registry_image}:${docker_image_tag}"
 if [[ -z $docker_registry_image ]]; then
     echo 'we failed to assemble a docker registry/image combination'
     exit 3
