@@ -21,7 +21,6 @@ inputs:
     description: 'image name to use'
     required: true
     default: ''
-    required: true
   docker_username:
     description: 'username needed to login to your registry'
     required: true
