@@ -67,3 +67,25 @@ jobs:
     - name: Get the output
       run: |
           echo "imageinfo was ${{ steps.test-public.outputs.imageinfo }}"
+  test-pushd:
+    runs-on: ubuntu-latest
+    name: test out our github action with an image version and pushd
+    steps:
+    - name: git checkout
+      uses: actions/checkout@v2
+    - name: test 
+      id: test-pushd
+      uses: ryanjfrizzell/action-bpd@master
+      with:
+        docker_registry_url: 'docker.pkg.github.com'
+        docker_registry_owner: 'ryanjfrizzell'
+        docker_repository: 'action-bpd'
+        docker_image: 'bpdautolatest'
+        docker_username: ${{ secrets.docker_username }}
+        docker_password: ${{ secrets.docker_password }}
+        dockerfile: 'Dockerfile.test2'
+        docker_image_tag: 'v1.0.0'
+        pushd: 'test2'
+    - name: Get the output
+      run: |
+          echo "imageinfo was ${{ steps.test-pushd.outputs.imageinfo }}"
