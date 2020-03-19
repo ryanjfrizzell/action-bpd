@@ -67,15 +67,14 @@ jobs:
     - name: Get the output
       run: |
           echo "imageinfo was ${{ steps.test-public.outputs.imageinfo }}"
-  test-with-version-and-pushd:
+  test-pushd:
     runs-on: ubuntu-latest
-    id: test-pushd
     name: test out our github action with an image version and pushd
     steps:
     - name: git checkout
       uses: actions/checkout@v2
     - name: test 
-      id: test-with-version
+      id: test-pushd
       uses: ryanjfrizzell/action-bpd@master
       with:
         docker_registry_url: 'docker.pkg.github.com'
@@ -84,7 +83,7 @@ jobs:
         docker_image: 'bpdautolatest'
         docker_username: ${{ secrets.docker_username }}
         docker_password: ${{ secrets.docker_password }}
-        pushd: test2
+        pushd: 'test2'
         docker_image_tag: 'v1.0.0'
     - name: Get the output
       run: |
