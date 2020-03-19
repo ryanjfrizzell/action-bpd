@@ -14,9 +14,9 @@ docker_registry=$INPUT_DOCKER_REGISTRY
 dockerhub=$INPUT_DOCKERHUB
 pushDir=$INPUT_PUSHD
 
-echo "dectected pushdir pushing to ${pushDir}"
-ls -al
 if [[ ! -z $pushDir ]]; then
+    echo "dectected pushdir pushing to ${pushDir}"
+    ls -al
     pushd $pushDir
 fi
 
