@@ -17,7 +17,7 @@ pushDir=$INPUT_PUSHD
 if [[ ! -z $pushDir ]]; then
     echo "dectected pushdir pushing to ${pushDir}"
     ls -al
-    pushd $pushDir
+    cd $pushDir
 fi
 
 # otherwise we try to assemble your docker image based on gihub's repo standard
