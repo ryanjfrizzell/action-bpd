@@ -16,7 +16,7 @@ pushDir=$INPUT_PUSHD
 
 echo "dectected pushdir pushing to ${pushDir}"
 ls -al
-if [[ -z $pushDir ]]; then
+if [[ ! -z $pushDir ]]; then
     pushd $pushDir
 fi
 
