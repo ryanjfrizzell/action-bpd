@@ -15,7 +15,7 @@ dockerhub=$INPUT_DOCKERHUB
 pushDir=$INPUT_PUSHD
 
 
-if [[ ! -z $pushDir ]]; then
+if [[ -z $pushDir ]]; then
     echo "dectected pushdir pushing to ${pushDir}"
     pushd $pushDir
 fi
