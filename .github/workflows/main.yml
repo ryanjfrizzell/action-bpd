@@ -75,7 +75,7 @@ jobs:
       uses: actions/checkout@v2
     - name: test 
       id: test-pushd
-      uses: ryanjfrizzell/action-bpd
+      uses: ryanjfrizzell/action-bpd@master
       with:
         docker_registry_url: 'docker.pkg.github.com'
         docker_registry_owner: 'ryanjfrizzell'
