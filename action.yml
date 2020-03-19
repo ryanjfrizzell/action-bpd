@@ -48,6 +48,10 @@ inputs:
     description: 'are you trying to push to dockerhub? [true/false]'
     default: 'false'
     required: true
+  pushd: 
+    description: 'optionally pushd to a directory before execution'
+    default: ''
+    required: false
 
 outputs:
   imageinfo: 
@@ -66,3 +70,4 @@ runs:
     - ${{ inputs.docker_image_tag }}
     - ${{ inputs.docker_registry }}
     - ${{ inputs.dockerhub }}
+    - ${{ inputs.pushd }}

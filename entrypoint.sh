@@ -12,6 +12,11 @@ dockerfile=$INPUT_DOCKERFILE
 docker_image_tag=$INPUT_DOCKER_IMAGE_TAG
 docker_registry=$INPUT_DOCKER_REGISTRY
 dockerhub=$INPUT_DOCKERHUB
+pushDir=$INPUT_PUSHD
+
+if [[ ! -z $pushDir ]]; then
+    pushd $pushDir
+fi
 
 # otherwise we try to assemble your docker image based on gihub's repo standard
 # https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
