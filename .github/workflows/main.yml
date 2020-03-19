@@ -83,6 +83,7 @@ jobs:
         docker_image: 'bpdautolatest'
         docker_username: ${{ secrets.docker_username }}
         docker_password: ${{ secrets.docker_password }}
+        dockerfile: 'Dockerfile.test2'
         pushd: 'test2'
         docker_image_tag: 'v1.0.0'
     - name: Get the output
